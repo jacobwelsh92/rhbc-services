@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* ============================================
+   RHBC Services - Construction Industry Design
+   Professional, Industrial, Trustworthy
+   ============================================ */
+
+@layer base {
+  /* Custom CSS Variables */
+  :root {
+    /* Construction Industry Colors */
+    --construction-orange: #FF6B00;
+    --construction-yellow: #FDB814;
+    --construction-steel: #2C3E50;
+    --construction-concrete: #95A5A6;
+    --construction-dark: #1A1A1A;
+
+    /* Accent Colors */
+    --accent-orange: #FF6B00;
+    --accent-yellow: #FDB814;
+    --accent-safety: #00A651;
+
+    /* Semantic Colors */
+    --success: #00A651;
+    --warning: #FDB814;
+    --error: #E74C3C;
+    --info: #3498DB;
+
+    /* Animation Easing */
+    --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  /* Base Styles */
+  * {
+    @apply antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-neutral-50 text-slate-900;
+    font-family: 'Barlow', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Typography - Industrial & Bold */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-slate-900;
+    font-family: 'Barlow Condensed', 'Roboto Condensed', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl leading-tight;
+    font-weight: 800;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+    font-weight: 700;
+  }
+
+  h3 {
+    @apply text-3xl md:text-4xl leading-snug;
+    font-weight: 700;
+  }
+
+  h4 {
+    @apply text-2xl md:text-3xl leading-snug;
+    font-weight: 600;
+  }
+
+  /* Links */
+  a {
+    @apply transition-colors duration-300;
+  }
+
+  /* Focus Styles (Accessibility) */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-orange-500 rounded-sm;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-orange-500 text-white;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-custom {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-8 py-3 font-semibold rounded-lg transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-orange-600 text-white hover:bg-orange-700 hover:-translate-y-0.5 hover:shadow-xl;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-ghost {
+    @apply text-slate-800 hover:text-orange-600;
+    font-weight: 600;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl p-8 shadow-md transition-all duration-300;
+    border-top: 4px solid #FF6B00;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  /* Section Spacing */
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-sm {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Construction Industry Patterns */
+  .construction-stripes {
+    background: repeating-linear-gradient(
+      45deg,
+      #FDB814,
+      #FDB814 10px,
+      #1A1A1A 10px,
+      #1A1A1A 20px
+    );
+  }
+
+  .construction-border {
+    border-left: 5px solid #FF6B00;
+    border-bottom: 2px solid #FDB814;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

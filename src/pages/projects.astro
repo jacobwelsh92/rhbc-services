@@ -1,0 +1,138 @@
+---
+/**
+ * Complete Project Portfolio Page
+ *
+ * Showcase RHBC's work to high-value customers with advanced filtering.
+ * Professional presentation of all completed projects.
+ *
+ * Features:
+ * - Advanced filtering by category, budget, location
+ * - Search functionality
+ * - Image lightbox gallery
+ * - Detailed project cards
+ * - Statistics and credibility signals
+ */
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation';
+import PortfolioPage from '../components/PortfolioPage';
+import CustomCursor from '../components/CustomCursor';
+
+const title = 'Our Projects - RHBC Services Portfolio';
+const description = 'Browse our complete portfolio of construction and demolition projects across Queensland. See the quality and professionalism we deliver on projects ranging from $50k to $500k+.';
+---
+
+<BaseLayout title={title} description={description}>
+  <CustomCursor client:load />
+  <Navigation client:load />
+
+  <!-- Page Hero -->
+  <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="absolute inset-0 opacity-10" style={{
+      backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+      backgroundSize: '50px 50px',
+    }}></div>
+
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Our Project Portfolio
+        </h1>
+        <p class="text-xl text-slate-300 mb-8">
+          Explore our completed projects across Queensland. From small-scale concrete cutting to large industrial demolitions, we deliver exceptional results every time.
+        </p>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">500+</div>
+            <div class="text-sm text-slate-300">Completed Projects</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">$50M+</div>
+            <div class="text-sm text-slate-300">Value Delivered</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">100%</div>
+            <div class="text-sm text-slate-300">Safety Record</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">98%</div>
+            <div class="text-sm text-slate-300">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Content -->
+  <PortfolioPage client:load />
+
+  <!-- CTA Section -->
+  <section class="section bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-white mb-6">
+        Ready to Start Your Project?
+      </h2>
+      <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+        Let's discuss how we can deliver exceptional results for your construction or demolition project.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/#contact-form" class="btn bg-white text-orange-600 hover:bg-slate-50 px-8 py-4 text-lg">
+          Get Free Quote
+        </a>
+        <a href="tel:+61474309168" class="btn btn-ghost border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg">
+          Call +61 474 309 168
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4">RHBC Services</h4>
+          <p class="text-slate-400 text-sm">
+            Expert construction and demolition services across Queensland. Licensed, insured, and committed to excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Services</a></li>
+            <li><a href="/projects" class="text-slate-400 hover:text-orange-500">Projects</a></li>
+            <li><a href="/#about" class="text-slate-400 hover:text-orange-500">About</a></li>
+            <li><a href="/#contact-form" class="text-slate-400 hover:text-orange-500">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Project Management</a></li>
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Concrete Cutting</a></li>
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Office Strip Out</a></li>
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Waste Removal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>+61 474 309 168</li>
+            <li>contact@rhbc-services.com.au</li>
+            <li>4/155 Middle Street<br />Cleveland, QLD</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
+        <p>&copy; {new Date().getFullYear()} RHBC Services. All rights reserved. | Licensed & Insured | ABN: [To be added]</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

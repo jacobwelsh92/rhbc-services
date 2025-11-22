@@ -1,0 +1,267 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation';
+import ContactForm from '../../components/ContactForm';
+import CustomCursor from '../../components/CustomCursor';
+import Button from '../../components/Button';
+import Card from '../../components/Card';
+
+const title = 'Office Strip-Out Services | Brisbane & QLD | RHBC Services';
+const description = 'Professional office strip-out and demolition services across Queensland. Complete removal of partitions, electrical, HVAC, and flooring. Minimal disruption, maximum efficiency.';
+---
+
+<BaseLayout title={title} description={description}>
+  <CustomCursor client:load />
+  <Navigation client:load />
+
+  <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style={{
+      backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+      backgroundSize: '50px 50px',
+    }}></div>
+
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6 text-slate-300">
+          <a href="/" class="hover:text-orange-400">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/#services" class="hover:text-orange-400">Services</a>
+          <span class="mx-2">/</span>
+          <span class="text-orange-400">Office Strip-Out</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Professional Office Strip-Out Services
+        </h1>
+        <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+          Complete and efficient removal of office fixtures, partitions, and systems. Fast turnaround with minimal disruption to surrounding operations.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="primary" size="lg" href="#contact-form" client:load magnetic={true}>
+            Get Free Quote
+          </Button>
+          <Button variant="secondary" size="lg" href="tel:+61474309168" client:load>
+            Call +61 474 309 168
+          </Button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mt-12">
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">2,000m²</div>
+            <div class="text-sm text-slate-300">Largest Project</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">85%</div>
+            <div class="text-sm text-slate-300">Materials Recycled</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">24hr</div>
+            <div class="text-sm text-slate-300">Available Service</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="mb-4">What We Remove</h2>
+        <p class="text-xl text-slate-600">
+          Complete office strip-out services for commercial spaces of all sizes
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <Card client:load hover3d={true} className="text-center">
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Partitions & Walls</h3>
+          <p class="text-slate-600">Drywall, glass partitions, and internal wall structures</p>
+        </Card>
+
+        <Card client:load hover3d={true} className="text-center">
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Electrical Systems</h3>
+          <p class="text-slate-600">Light fixtures, power points, data cabling, and wiring</p>
+        </Card>
+
+        <Card client:load hover3d={true} className="text-center">
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">HVAC & Ceiling</h3>
+          <p class="text-slate-600">Air conditioning, ductwork, and ceiling grid systems</p>
+        </Card>
+
+        <Card client:load hover3d={true} className="text-center">
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Flooring & Fixtures</h3>
+          <p class="text-slate-600">Carpet, tiles, raised floors, and built-in furniture</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Office strip-out in progress" class="rounded-2xl shadow-2xl" loading="lazy" />
+        </div>
+
+        <div>
+          <h2 class="mb-6">Why Choose RHBC for Office Strip-Out?</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Minimal Disruption</h3>
+                <p class="text-slate-600">Flexible scheduling including after-hours and weekend work to avoid disrupting neighboring tenants.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Fast Turnaround</h3>
+                <p class="text-slate-600">Efficient systematic approach completes projects quickly. Most office strip-outs done in 1-4 weeks.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Proper Disposal</h3>
+                <p class="text-slate-600">Environmentally responsible waste management with up to 85% recycling rate for materials.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Clean Handover</h3>
+                <p class="text-slate-600">Site left clean, safe, and ready for the next phase. Complete rubbish removal and final inspection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="mb-4">Recent Office Strip-Out Projects</h2>
+        <p class="text-xl text-slate-600">See our expertise in action</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400&h=300&fit=crop" alt="Brisbane CBD office" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Brisbane CBD Office</h3>
+          <p class="text-slate-600 text-sm mb-3">2,000m² complete strip-out in 4 weeks</p>
+          <div class="text-orange-500 font-semibold">$150k-$200k</div>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400&h=300&fit=crop" alt="Shopping center retail" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Capalaba Shopping Center</h3>
+          <p class="text-slate-600 text-sm mb-3">Overnight work, zero complaints</p>
+          <div class="text-orange-500 font-semibold">$100k-$150k</div>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=300&fit=crop" alt="Corporate headquarters" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Corporate HQ Renovation</h3>
+          <p class="text-slate-600 text-sm mb-3">Multi-floor strip-out, phased approach</p>
+          <div class="text-orange-500 font-semibold">$200k-$300k</div>
+        </Card>
+      </div>
+
+      <div class="text-center">
+        <Button variant="secondary" size="lg" href="/projects" client:load>
+          View All Projects
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <ContactForm client:load />
+
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4">RHBC Services</h4>
+          <p class="text-slate-400 text-sm">Expert construction and demolition services across Queensland.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Services</a></li>
+            <li><a href="/projects" class="text-slate-400 hover:text-orange-500">Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/services/project-management" class="text-slate-400 hover:text-orange-500">Project Management</a></li>
+            <li><a href="/services/concrete-cutting" class="text-slate-400 hover:text-orange-500">Concrete Cutting</a></li>
+            <li><a href="/services/office-stripout" class="text-slate-400 hover:text-orange-500">Office Strip Out</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>+61 474 309 168</li>
+            <li>contact@rhbc-services.com.au</li>
+            <li>4/155 Middle Street, Cleveland, QLD</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
+        <p>&copy; {new Date().getFullYear()} RHBC Services. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

@@ -1,0 +1,365 @@
+---
+/**
+ * Project Management Service Page
+ *
+ * Dedicated landing page for RHBC's construction project management services.
+ * SEO-optimized for ranking in local search results.
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation';
+import ContactForm from '../../components/ContactForm';
+import CustomCursor from '../../components/CustomCursor';
+import Button from '../../components/Button';
+import Card from '../../components/Card';
+
+const title = 'Construction Project Management Services | Brisbane & QLD | RHBC Services';
+const description = 'Expert construction project management across Queensland. Comprehensive oversight, budget control, timeline management, and quality assurance. Licensed professionals delivering exceptional results.';
+---
+
+<BaseLayout title={title} description={description}>
+  <CustomCursor client:load />
+  <Navigation client:load />
+
+  <!-- Service Hero -->
+  <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style={{
+      backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+      backgroundSize: '50px 50px',
+    }}></div>
+
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6 text-slate-300">
+          <a href="/" class="hover:text-orange-400">Home</a>
+          <span class="mx-2">/</span>
+          <a href="/#services" class="hover:text-orange-400">Services</a>
+          <span class="mx-2">/</span>
+          <span class="text-orange-400">Project Management</span>
+        </div>
+
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">
+          Expert Construction Project Management
+        </h1>
+        <p class="text-xl text-slate-300 mb-8 leading-relaxed">
+          Comprehensive project oversight from concept to completion. Expert coordination of trades, materials, timelines, and budgets for construction projects across Queensland.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="primary" size="lg" href="#contact-form" client:load magnetic={true}>
+            Get Free Consultation
+          </Button>
+          <Button variant="secondary" size="lg" href="tel:+61474309168" client:load>
+            Call +61 474 309 168
+          </Button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-6 mt-12">
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">500+</div>
+            <div class="text-sm text-slate-300">Projects Managed</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">98%</div>
+            <div class="text-sm text-slate-300">On-Time Delivery</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div class="text-3xl font-bold text-orange-400 mb-1">$50M+</div>
+            <div class="text-sm text-slate-300">Value Delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Manage -->
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="mb-4">Comprehensive Project Management</h2>
+        <p class="text-xl text-slate-600">
+          End-to-end oversight ensuring your construction project stays on track, on budget, and exceeds expectations
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Timeline Management</h3>
+          <p class="text-slate-600">Detailed scheduling, milestone tracking, and proactive deadline management to keep projects on track.</p>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Budget Control</h3>
+          <p class="text-slate-600">Accurate cost estimation, expense tracking, and financial reporting to prevent budget overruns.</p>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Trade Coordination</h3>
+          <p class="text-slate-600">Seamless scheduling and management of all trades, subcontractors, and specialists.</p>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Quality Assurance</h3>
+          <p class="text-slate-600">Rigorous quality control, inspections, and compliance with building codes and standards.</p>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Material Procurement</h3>
+          <p class="text-slate-600">Strategic sourcing, purchasing, and logistics management for all project materials.</p>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-3">Documentation & Reporting</h3>
+          <p class="text-slate-600">Comprehensive project documentation, progress reports, and stakeholder communication.</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Process -->
+  <section class="section bg-slate-50">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="mb-4">Our Project Management Process</h2>
+        <p class="text-xl text-slate-600">
+          Systematic, proven approach to delivering successful construction projects
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            1
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Initial Planning & Assessment</h3>
+            <p class="text-slate-600 leading-relaxed">Comprehensive project evaluation, scope definition, feasibility analysis, and detailed planning. We establish clear objectives, timelines, and budgets from day one.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            2
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Resource Allocation & Scheduling</h3>
+            <p class="text-slate-600 leading-relaxed">Strategic deployment of labor, materials, and equipment. Detailed scheduling with critical path analysis to optimize project flow and prevent delays.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            3
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Execution & Monitoring</h3>
+            <p class="text-slate-600 leading-relaxed">Active project oversight with daily progress tracking, quality inspections, and proactive problem-solving. Regular stakeholder updates and transparent communication.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-6 items-start">
+          <div class="flex-shrink-0 w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            4
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold mb-3">Completion & Handover</h3>
+            <p class="text-slate-600 leading-relaxed">Final inspections, punch list completion, documentation handover, and post-project support. We ensure complete satisfaction before project sign-off.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop"
+            alt="Professional construction project management"
+            class="rounded-2xl shadow-2xl"
+            loading="lazy"
+          />
+        </div>
+
+        <div>
+          <h2 class="mb-6">Why Choose RHBC for Project Management?</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">15+ Years Experience</h3>
+                <p class="text-slate-600">Proven track record managing projects from $50k to $500k+ across residential, commercial, and industrial sectors.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Single Point of Contact</h3>
+                <p class="text-slate-600">Dedicated project manager provides consistent communication, accountability, and expert decision-making throughout.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Proactive Problem Solving</h3>
+                <p class="text-slate-600">We anticipate challenges before they become issues. Experience-based solutions keep projects moving forward.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-2">Transparent Reporting</h3>
+                <p class="text-slate-600">Regular progress updates, budget tracking, and milestone reports keep all stakeholders informed and aligned.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Types -->
+  <section class="section bg-slate-50">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="mb-4">Projects We Manage</h2>
+        <p class="text-xl text-slate-600">
+          Comprehensive project management across all construction sectors
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop" alt="Commercial construction" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Commercial Projects</h3>
+          <p class="text-slate-600 mb-3">Office buildings, retail spaces, hospitality venues, and mixed-use developments.</p>
+          <div class="text-orange-500 font-semibold">$100k - $2M+</div>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1513467535987-fd81bc7d62f8?w=400&h=300&fit=crop" alt="Residential construction" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Residential Projects</h3>
+          <p class="text-slate-600 mb-3">Custom homes, renovations, multi-unit developments, and luxury residences.</p>
+          <div class="text-orange-500 font-semibold">$50k - $500k+</div>
+        </Card>
+
+        <Card client:load hover3d={true}>
+          <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400&h=300&fit=crop" alt="Industrial construction" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h3 class="text-xl font-bold mb-2">Industrial Projects</h3>
+          <p class="text-slate-600 mb-3">Warehouses, factories, processing facilities, and specialized infrastructure.</p>
+          <div class="text-orange-500 font-semibold">$200k - $5M+</div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <ContactForm client:load />
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4">RHBC Services</h4>
+          <p class="text-slate-400 text-sm">
+            Expert construction and demolition services across Queensland. Licensed, insured, and committed to excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/#services" class="text-slate-400 hover:text-orange-500">Services</a></li>
+            <li><a href="/projects" class="text-slate-400 hover:text-orange-500">Projects</a></li>
+            <li><a href="/#about" class="text-slate-400 hover:text-orange-500">About</a></li>
+            <li><a href="/#contact-form" class="text-slate-400 hover:text-orange-500">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="/services/project-management" class="text-slate-400 hover:text-orange-500">Project Management</a></li>
+            <li><a href="/services/concrete-cutting" class="text-slate-400 hover:text-orange-500">Concrete Cutting</a></li>
+            <li><a href="/services/office-stripout" class="text-slate-400 hover:text-orange-500">Office Strip Out</a></li>
+            <li><a href="/services/waste-removal" class="text-slate-400 hover:text-orange-500">Waste Removal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>+61 474 309 168</li>
+            <li>contact@rhbc-services.com.au</li>
+            <li>4/155 Middle Street<br />Cleveland, QLD</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
+        <p>&copy; {new Date().getFullYear()} RHBC Services. All rights reserved. | Licensed & Insured | ABN: [To be added]</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

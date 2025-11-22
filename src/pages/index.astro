@@ -1,16 +1,194 @@
 ---
+/**
+ * RHBC Services - Homepage
+ *
+ * World-class construction and demolition website.
+ * Built to position RHBC as the industry leader in Queensland.
+ *
+ * Features:
+ * - Premium hero with background video
+ * - Professional navigation
+ * - Services showcase with stagger animations
+ * - Custom cursor
+ * - Buttery-smooth Lenis scrolling
+ * - GSAP-powered interactions
+ *
+ * Customer Focus:
+ * - High-value decision makers ($50k-$500k projects)
+ * - Immediate trust building
+ * - Clear value proposition
+ * - Multiple contact options
+ * - Professional presentation
+ */
 
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navigation from '../components/Navigation';
+import Hero from '../components/Hero';
+import StatsShowcase from '../components/StatsShowcase';
+import Services from '../components/Services';
+import Certifications from '../components/Certifications';
+import TransformationShowcase from '../components/TransformationShowcase';
+import Projects from '../components/Projects';
+import Testimonials from '../components/Testimonials';
+import ContactForm from '../components/ContactForm';
+import EmergencyCTA from '../components/EmergencyCTA';
+import CustomCursor from '../components/CustomCursor';
+
+const title = 'Expert Construction & Demolition Services';
+const description = 'Professional construction and demolition services in Cleveland, QLD. Expert project management, concrete cutting, office strip out, and specialized demolition. Licensed, insured, and safety-certified.';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description}>
+  <!-- Custom Cursor - Premium Feature -->
+  <CustomCursor client:load />
+
+  <!-- Emergency Contact CTA - Fixed Position -->
+  <EmergencyCTA client:load />
+
+  <!-- Navigation - Sticky Header -->
+  <Navigation client:load />
+
+  <!-- Hero Section - First Impression -->
+  <Hero client:load />
+
+  <!-- Stats Showcase - Build Authority -->
+  <StatsShowcase client:load />
+
+  <!-- Services Section - Core Capabilities -->
+  <Services client:load />
+
+  <!-- Certifications - Build Trust -->
+  <Certifications client:load />
+
+  <!-- Transformation Showcase - Before/After Slider -->
+  <TransformationShowcase client:load />
+
+  <!-- Projects Section - Visual Proof of Quality -->
+  <Projects client:load />
+
+  <!-- About Section -->
+  <section id="about" class="section bg-white">
+    <div class="container-custom text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="mb-6 animate-on-scroll">
+          Building Excellence Across Queensland
+        </h2>
+        <p class="text-xl text-slate-600 mb-8 animate-on-scroll">
+          RHBC Services stands as a leader in professional construction and demolition services. Our team of experts is dedicated to delivering exceptional results in project management, skilled labor, material procurement, concrete cutting, and waste removal.
+        </p>
+        <p class="text-lg text-slate-600 animate-on-scroll">
+          Whether you need comprehensive construction services or specialized demolition work, we ensure every project receives the meticulous attention it deserves, from concept to execution. <strong>Licensed, insured, and committed to safety.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section - Social Proof -->
+  <section class="section-sm bg-slate-50">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div class="animate-on-scroll">
+          <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Fully Licensed & Insured</h3>
+          <p class="text-slate-600">All certifications current and comprehensive insurance coverage</p>
+        </div>
+
+        <div class="animate-on-scroll">
+          <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Experienced Team</h3>
+          <p class="text-slate-600">Safety-certified professionals with decades of combined experience</p>
+        </div>
+
+        <div class="animate-on-scroll">
+          <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Quality Guaranteed</h3>
+          <p class="text-slate-600">Every project backed by our commitment to excellence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section - Social Proof from Industry Leaders -->
+  <Testimonials client:load />
+
+  <!-- Contact CTA Section -->
+  <section class="section bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="container-custom text-center">
+      <h2 class="text-white mb-6 animate-on-scroll">
+        Ready to Start Your Project?
+      </h2>
+      <p class="text-xl text-slate-300 mb-8 max-w-2xl mx-auto animate-on-scroll">
+        Get a free, no-obligation quote for your construction or demolition project. We'll provide expert advice and transparent pricing.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll">
+        <a href="#contact-form" class="btn btn-primary px-8 py-4 text-lg">
+          Get Free Quote
+        </a>
+        <a href="tel:+61474309168" class="btn btn-secondary px-8 py-4 text-lg text-white border-white hover:bg-white hover:text-slate-900">
+          Call +61 474 309 168
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section - Premium Lead Capture -->
+  <ContactForm client:load />
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4">RHBC Services</h4>
+          <p class="text-slate-400 text-sm">
+            Expert construction and demolition services across Queensland. Licensed, insured, and committed to excellence.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#services" class="text-slate-400 hover:text-orange-500">Services</a></li>
+            <li><a href="#about" class="text-slate-400 hover:text-orange-500">About</a></li>
+            <li><a href="#contact" class="text-slate-400 hover:text-orange-500">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#services" class="text-slate-400 hover:text-orange-500">Project Management</a></li>
+            <li><a href="#services" class="text-slate-400 hover:text-orange-500">Concrete Cutting</a></li>
+            <li><a href="#services" class="text-slate-400 hover:text-orange-500">Office Strip Out</a></li>
+            <li><a href="#services" class="text-slate-400 hover:text-orange-500">Waste Removal</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold mb-4">Contact</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li>+61 474 309 168</li>
+            <li>contact@rhbc-services.com.au</li>
+            <li>4/155 Middle Street<br />Cleveland, QLD</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 text-center text-slate-400 text-sm">
+        <p>&copy; {new Date().getFullYear()} RHBC Services. All rights reserved. | Licensed & Insured | ABN: [To be added]</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

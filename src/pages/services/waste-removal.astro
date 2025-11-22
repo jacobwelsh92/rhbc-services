@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navigation from '../../components/Navigation';
+import ContactForm from '../../components/ContactForm';
+import CustomCursor from '../../components/CustomCursor';
+import Button from '../../components/Button';
+import Card from '../../components/Card';
+
+const title = 'Waste Removal & Disposal Services | Brisbane & QLD | RHBC Services';
+const description = 'Professional waste removal including hazardous materials. Licensed, environmentally responsible disposal. Same-day service available across Queensland.';
+---
+
+<BaseLayout title={title} description={description}>
+  <CustomCursor client:load />
+  <Navigation client:load />
+
+  <section class="relative pt-32 pb-20 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div class="container-custom relative z-10">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="mb-6 text-slate-300">
+          <a href="/" class="hover:text-orange-400">Home</a> <span class="mx-2">/</span>
+          <a href="/#services" class="hover:text-orange-400">Services</a> <span class="mx-2">/</span>
+          <span class="text-orange-400">Waste Removal</span>
+        </div>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6">Professional Waste Removal Services</h1>
+        <p class="text-xl text-slate-300 mb-8">Complete waste management including hazardous materials. Safe, responsible, and environmentally compliant disposal.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button variant="primary" size="lg" href="#contact-form" client:load magnetic={true}>Get Free Quote</Button>
+          <Button variant="secondary" size="lg" href="tel:+61474309168" client:load>Call +61 474 309 168</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="mb-4">Comprehensive Waste Management</h2>
+        <p class="text-xl text-slate-600">Licensed for all waste types including hazardous materials</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <Card client:load hover3d={true}>
+          <h3 class="text-xl font-bold mb-2">Construction Waste</h3>
+          <p class="text-slate-600">Concrete, timber, metal, drywall, and general building debris</p>
+        </Card>
+        <Card client:load hover3d={true}>
+          <h3 class="text-xl font-bold mb-2">Hazardous Materials</h3>
+          <p class="text-slate-600">Asbestos, chemicals, contaminated soil - fully certified removal</p>
+        </Card>
+        <Card client:load hover3d={true}>
+          <h3 class="text-xl font-bold mb-2">Recyclables</h3>
+          <p class="text-slate-600">Up to 90% diversion rate - metal, timber, concrete crushing</p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-slate-50">
+    <div class="container-custom">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <img src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?w=800&h=600&fit=crop" alt="Professional waste management" class="rounded-2xl shadow-2xl" loading="lazy" />
+        <div>
+          <h2 class="mb-6">Why Choose RHBC?</h2>
+          <ul class="space-y-4">
+            <li class="flex gap-3"><svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-slate-700">Fully licensed for hazmat removal</span></li>
+            <li class="flex gap-3"><svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-slate-700">Same-day service available</span></li>
+            <li class="flex gap-3"><svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span class="text-slate-700">Environmental compliance guaranteed</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactForm client:load />
+
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="container-custom text-center">
+      <p class="text-slate-400 text-sm">&copy; {new Date().getFullYear()} RHBC Services. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>

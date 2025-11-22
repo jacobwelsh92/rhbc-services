@@ -1,0 +1,367 @@
+---
+/**
+ * BaseLayout - Premium Foundation
+ *
+ * The gold standard base layout for RHBC Services.
+ * Implements world-class SEO, performance, and accessibility.
+ *
+ * Features:
+ * - Optimized meta tags for search and social
+ * - Performance-first resource loading
+ * - WCAG 2.2 AA accessibility
+ * - Smooth scroll and animations
+ */
+
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-default.jpg',
+  noIndex = false
+} = Astro.props;
+
+// Handle both development and production URLs
+const siteUrl = Astro.site || new URL(Astro.url.pathname, 'http://localhost:4321');
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const socialImage = new URL(ogImage, siteUrl);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Mobile Web App Capable -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="RHBC Services" />
+
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#FF6B00" />
+    <meta name="msapplication-TileColor" content="#FF6B00" />
+
+    <!-- Format Detection -->
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="format-detection" content="address=yes" />
+
+    <!-- SEO Meta Tags -->
+    <title>{title} | RHBC Services</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | RHBC Services`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:site_name" content="RHBC Services" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | RHBC Services`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <!-- Comprehensive Schema Markup for Construction Industry SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "GeneralContractor",
+        "name": "RHBC Services",
+        "alternateName": "RHBC Construction & Demolition",
+        "description": "Professional construction, demolition, and project management services across Queensland. Licensed, insured, and safety-certified with 15+ years experience.",
+        "url": "https://rhbc-services.com.au",
+        "logo": "https://rhbc-services.com.au/logo.png",
+        "image": "https://rhbc-services.com.au/og-default.jpg",
+        "telephone": "+61474309168",
+        "email": "contact@rhbc-services.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "4/155 Middle Street",
+          "addressLocality": "Cleveland",
+          "addressRegion": "QLD",
+          "postalCode": "4163",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -27.5286,
+          "longitude": 153.2660
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Brisbane"
+          },
+          {
+            "@type": "City",
+            "name": "Gold Coast"
+          },
+          {
+            "@type": "State",
+            "name": "Queensland"
+          }
+        ],
+        "openingHours": "Mo-Fr 07:00-17:00, Sa 08:00-12:00",
+        "priceRange": "$$-$$$",
+        "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+        "currenciesAccepted": "AUD",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "127"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Construction & Demolition Services",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Construction Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Project Management",
+                    "description": "Comprehensive construction project management from concept to completion"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Material Procurement",
+                    "description": "Professional material sourcing and procurement services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Skilled Labor",
+                    "description": "Certified and experienced construction professionals"
+                  }
+                }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Demolition Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Concrete Cutting",
+                    "description": "Professional concrete cutting for walls, floors, and structural elements"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Office Strip Out",
+                    "description": "Complete office demolition and strip out services"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Waste Removal",
+                    "description": "Professional waste removal and disposal including hazardous materials"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "name": "Free Quote",
+            "description": "Free, no-obligation project quote and consultation",
+            "price": "0",
+            "priceCurrency": "AUD"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/rhbcservices",
+          "https://www.linkedin.com/company/rhbcservices"
+        ]
+      }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "RHBC Services",
+        "url": "https://rhbc-services.com.au",
+        "logo": "https://rhbc-services.com.au/logo.png",
+        "foundingDate": "2009",
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "minValue": 10,
+          "maxValue": 50
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+61474309168",
+          "contactType": "customer service",
+          "areaServed": "AU",
+          "availableLanguage": "English",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "07:00",
+            "closes": "17:00"
+          }
+        }
+      }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Fonts - Industrial Construction Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="antialiased">
+    <!-- Skip to main content (Accessibility) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-orange-500 focus:text-white focus:rounded-lg focus:shadow-lg"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Main Content -->
+    <main id="main-content" class="min-h-screen">
+      <slot />
+    </main>
+
+    <!-- Premium Animation Scripts -->
+    <script>
+      // Lenis Smooth Scroll - Industry Standard
+      import Lenis from 'lenis';
+
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
+      });
+
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+
+      // Expose lenis globally for GSAP ScrollTrigger integration
+      (window as any).lenis = lenis;
+    </script>
+
+    <script>
+      // GSAP + ScrollTrigger Setup
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Integrate Lenis with ScrollTrigger
+      const lenis = (window as any).lenis;
+      if (lenis) {
+        lenis.on('scroll', ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+      }
+
+      // Professional fade-in on scroll
+      gsap.utils.toArray('.animate-on-scroll').forEach((elem: any) => {
+        gsap.from(elem, {
+          scrollTrigger: {
+            trigger: elem,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+          },
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out',
+        });
+      });
+    </script>
+
+    <!-- Analytics Placeholder (Privacy-focused) -->
+    <!-- Add Plausible or Fathom Analytics here -->
+  </body>
+</html>
+
+<style is:global>
+  /* Custom scrollbar for premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Smooth font rendering */
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+</style>
