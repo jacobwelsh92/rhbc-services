@@ -21,12 +21,12 @@
  */
 
 import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import SplitType from 'split-type'; // TEMPORARILY DISABLED - causing hydration issues
 import Button from './Button';
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger); // DISABLED - debugging crash
 
 interface HeroProps {
   videoUrl?: string;
@@ -45,100 +45,13 @@ export default function Hero({
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout>;
-    let ctx: gsap.Context;
-
-    // Wait for component to fully mount and hydrate
-    timeoutId = setTimeout(() => {
-      try {
-        // Entrance animations
-        if (headlineRef.current) {
-          gsap.from(headlineRef.current, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: 'power3.out',
-            delay: 0.3,
-          });
-        }
-
-        const subtextElements = document.querySelectorAll('.hero-subtext');
-        if (subtextElements.length > 0) {
-          gsap.from('.hero-subtext', {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: 'power2.out',
-            delay: 0.8,
-          });
-        }
-
-        const ctaElements = document.querySelectorAll('.hero-cta');
-        if (ctaElements.length > 0) {
-          gsap.from('.hero-cta', {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out',
-            delay: 1.2,
-          });
-        }
-
-        const trustSignals = document.querySelectorAll('.trust-signal');
-        if (trustSignals.length > 0) {
-          gsap.from('.trust-signal', {
-            opacity: 0,
-            y: 20,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: 'power2.out',
-            delay: 1.5,
-          });
-        }
-
-        // PARALLAX DISABLED - Causing React hydration crashes
-        // TODO: Re-implement with proper React-safe approach
-        // Parallax - Run separately after entrance animations
-        // setTimeout(() => {
-        //   ctx = gsap.context(() => {
-        //     // Subtle parallax - less aggressive to prevent crashes
-        //     if (backgroundRef.current && heroRef.current) {
-        //       gsap.to(backgroundRef.current, {
-        //         y: 150,
-        //         ease: 'none',
-        //         scrollTrigger: {
-        //           trigger: heroRef.current,
-        //           start: 'top top',
-        //           end: 'bottom top',
-        //           scrub: 1.5,
-        //         },
-        //       });
-        //     }
-
-        //     if (contentRef.current && heroRef.current) {
-        //       gsap.to(contentRef.current, {
-        //         y: 80,
-        //         opacity: 0.5,
-        //         ease: 'none',
-        //         scrollTrigger: {
-        //           trigger: heroRef.current,
-        //           start: 'top top',
-        //           end: 'bottom top',
-        //           scrub: 1.5,
-        //         },
-        //       });
-        //     }
-        //   }, heroRef);
-        // }, 1800); // After entrance animations complete
-      } catch (error) {
-        console.error('Hero animation error:', error);
-      }
-    }, 150);
+    // ALL ANIMATIONS DISABLED - Debugging Hero crash
+    // The component was mounting then immediately unmounting
+    // We need to find the root cause before re-enabling animations
+    console.log('Hero component mounted');
 
     return () => {
-      clearTimeout(timeoutId);
-      if (ctx) ctx.revert();
+      console.log('Hero component unmounting');
     };
   }, []);
 
