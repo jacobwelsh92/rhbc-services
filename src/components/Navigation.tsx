@@ -110,8 +110,8 @@ export default function Navigation() {
         }`}
       >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-24">
-            {/* Logo - Professional & Bold */}
+          <div className="grid grid-cols-3 items-center h-24 gap-8">
+            {/* Logo - Left */}
             <a
               href="/"
               className="flex items-center gap-4 group"
@@ -130,8 +130,8 @@ export default function Navigation() {
               </div>
             </a>
 
-            {/* Desktop Navigation */}
-            <div className="hidden xl:flex items-center gap-8">
+            {/* Desktop Navigation - Center */}
+            <div className="hidden xl:flex items-center justify-center gap-8">
               {/* Services Mega Menu */}
               <div
                 className="relative"
@@ -243,8 +243,8 @@ export default function Navigation() {
               </a>
             </div>
 
-            {/* Contact Section - Trust Building */}
-            <div className="hidden xl:flex items-center gap-4">
+            {/* Contact Section - Right */}
+            <div className="hidden xl:flex items-center justify-end gap-4">
               {/* Phone - Prominent */}
               <a
                 href="tel:+61474309168"
@@ -269,35 +269,37 @@ export default function Navigation() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="xl:hidden p-3 text-slate-900 hover:text-orange-600 transition-colors"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle mobile menu"
-              aria-expanded={isMobileMenuOpen}
-            >
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={3}
-                viewBox="0 0 24 24"
+            {/* Mobile Menu Button - Right */}
+            <div className="xl:hidden flex justify-end">
+              <button
+                className="p-3 text-slate-900 hover:text-orange-600 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+                aria-expanded={isMobileMenuOpen}
               >
-                {isMobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  {isMobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
