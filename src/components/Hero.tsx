@@ -97,38 +97,40 @@ export default function Hero({
           });
         }
 
+        // PARALLAX DISABLED - Causing React hydration crashes
+        // TODO: Re-implement with proper React-safe approach
         // Parallax - Run separately after entrance animations
-        setTimeout(() => {
-          ctx = gsap.context(() => {
-            // Subtle parallax - less aggressive to prevent crashes
-            if (backgroundRef.current && heroRef.current) {
-              gsap.to(backgroundRef.current, {
-                y: 150,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: heroRef.current,
-                  start: 'top top',
-                  end: 'bottom top',
-                  scrub: 1.5,
-                },
-              });
-            }
+        // setTimeout(() => {
+        //   ctx = gsap.context(() => {
+        //     // Subtle parallax - less aggressive to prevent crashes
+        //     if (backgroundRef.current && heroRef.current) {
+        //       gsap.to(backgroundRef.current, {
+        //         y: 150,
+        //         ease: 'none',
+        //         scrollTrigger: {
+        //           trigger: heroRef.current,
+        //           start: 'top top',
+        //           end: 'bottom top',
+        //           scrub: 1.5,
+        //         },
+        //       });
+        //     }
 
-            if (contentRef.current && heroRef.current) {
-              gsap.to(contentRef.current, {
-                y: 80,
-                opacity: 0.5,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: heroRef.current,
-                  start: 'top top',
-                  end: 'bottom top',
-                  scrub: 1.5,
-                },
-              });
-            }
-          }, heroRef);
-        }, 1800); // After entrance animations complete
+        //     if (contentRef.current && heroRef.current) {
+        //       gsap.to(contentRef.current, {
+        //         y: 80,
+        //         opacity: 0.5,
+        //         ease: 'none',
+        //         scrollTrigger: {
+        //           trigger: heroRef.current,
+        //           start: 'top top',
+        //           end: 'bottom top',
+        //           scrub: 1.5,
+        //         },
+        //       });
+        //     }
+        //   }, heroRef);
+        // }, 1800); // After entrance animations complete
       } catch (error) {
         console.error('Hero animation error:', error);
       }
@@ -136,7 +138,7 @@ export default function Hero({
 
     return () => {
       clearTimeout(timeoutId);
-      ctx.revert();
+      if (ctx) ctx.revert();
     };
   }, []);
 
