@@ -44,7 +44,7 @@ export default function Button({
     if (!magnetic || !buttonRef.current) return;
 
     const button = buttonRef.current;
-    const magnetic = magneticRef.current;
+    const magneticElement = magneticRef.current; // Fixed: renamed to avoid shadowing
 
     const handleMouseMove = (e: MouseEvent) => {
       const { left, top, width, height } = button.getBoundingClientRect();
@@ -61,8 +61,8 @@ export default function Button({
         ease: 'power2.out',
       });
 
-      if (magnetic) {
-        gsap.to(magnetic, {
+      if (magneticElement) {
+        gsap.to(magneticElement, {
           x: deltaX * 0.5,
           y: deltaY * 0.5,
           duration: 0.5,
@@ -79,8 +79,8 @@ export default function Button({
         ease: 'elastic.out(1, 0.3)',
       });
 
-      if (magnetic) {
-        gsap.to(magnetic, {
+      if (magneticElement) {
+        gsap.to(magneticElement, {
           x: 0,
           y: 0,
           duration: 0.5,

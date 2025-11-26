@@ -21,12 +21,12 @@
  */
 
 import React, { useEffect, useRef } from 'react';
-// import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 // import SplitType from 'split-type'; // TEMPORARILY DISABLED - causing hydration issues
 import Button from './Button';
 
-// gsap.registerPlugin(ScrollTrigger); // DISABLED - debugging crash
+gsap.registerPlugin(ScrollTrigger);
 
 interface HeroProps {
   videoUrl?: string;
@@ -45,13 +45,62 @@ export default function Hero({
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // ALL ANIMATIONS DISABLED - Debugging Hero crash
-    // The component was mounting then immediately unmounting
-    // We need to find the root cause before re-enabling animations
-    console.log('Hero component mounted');
+    // Simple entrance animations - no parallax (causes hydration issues)
+    try {
+      // Headline fade-in
+      if (headlineRef.current) {
+        gsap.from(headlineRef.current, {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: 0.3,
+        });
+      }
+
+      // Subtext fade-in
+      const subtextElements = document.querySelectorAll('.hero-subtext');
+      if (subtextElements.length > 0) {
+        gsap.from('.hero-subtext', {
+          opacity: 0,
+          y: 30,
+          duration: 0.8,
+          ease: 'power2.out',
+          delay: 0.8,
+        });
+      }
+
+      // CTA buttons stagger
+      const ctaElements = document.querySelectorAll('.hero-cta');
+      if (ctaElements.length > 0) {
+        gsap.from('.hero-cta', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power2.out',
+          delay: 1.2,
+        });
+      }
+
+      // Trust signals stagger
+      const trustSignals = document.querySelectorAll('.trust-signal');
+      if (trustSignals.length > 0) {
+        gsap.from('.trust-signal', {
+          opacity: 0,
+          y: 20,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: 'power2.out',
+          delay: 1.5,
+        });
+      }
+    } catch (error) {
+      console.error('Hero animation error:', error);
+    }
 
     return () => {
-      console.log('Hero component unmounting');
+      // Cleanup
     };
   }, []);
 
