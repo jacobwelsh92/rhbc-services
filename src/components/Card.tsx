@@ -1,14 +1,8 @@
 /**
- * Premium Card Component
+ * Card Component - Sophisticated Design
  *
- * Industry-leading card component with sophisticated 3D tilt effect.
- * Used for services, projects, and content displays.
- *
- * Features:
- * - Smooth tilt on mouse move
- * - Lighting effect that follows cursor
- * - GSAP-powered animations
- * - Accessible and semantic HTML
+ * Clean card component with subtle 3D tilt effect.
+ * Black/white/navy color scheme.
  */
 
 import { useRef, useEffect, useState, type ReactNode } from 'react';
@@ -31,7 +25,7 @@ export default function Card({
   const glowRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Premium 3D tilt effect on hover
+  // Subtle 3D tilt effect on hover
   useEffect(() => {
     if (!hover3d || !cardRef.current) return;
 
@@ -41,13 +35,12 @@ export default function Card({
     const handleMouseMove = (e: MouseEvent) => {
       const { left, top, width, height } = card.getBoundingClientRect();
 
-      // Calculate mouse position relative to card center
       const x = (e.clientX - left) / width;
       const y = (e.clientY - top) / height;
 
-      // Calculate tilt angles (subtle for professional feel)
-      const rotateY = (x - 0.5) * 15; // Max 7.5deg in each direction
-      const rotateX = (y - 0.5) * -15; // Max 7.5deg in each direction
+      // Subtle tilt - max 5deg
+      const rotateY = (x - 0.5) * 10;
+      const rotateX = (y - 0.5) * -10;
 
       gsap.to(card, {
         rotateX,
@@ -57,7 +50,6 @@ export default function Card({
         transformPerspective: 1000,
       });
 
-      // Move glow effect to follow cursor
       if (glow) {
         gsap.to(glow, {
           x: e.clientX - left,
@@ -71,7 +63,7 @@ export default function Card({
     const handleMouseEnter = () => {
       setIsHovered(true);
       gsap.to(card, {
-        scale: 1.02,
+        scale: 1.01,
         duration: 0.3,
         ease: 'power2.out',
       });
@@ -99,38 +91,22 @@ export default function Card({
     };
   }, [hover3d]);
 
-  const baseStyles =
-    'relative bg-white rounded-xl p-8 shadow-md transition-shadow duration-300 overflow-hidden';
-  const hoverStyles = 'hover:shadow-2xl';
-
   return (
     <div
       ref={cardRef}
-      className={`${baseStyles} ${hoverStyles} ${className}`}
+      className={`relative bg-white rounded-lg p-8 border border-gray-200 transition-all duration-300 overflow-hidden hover:shadow-lg hover:border-gray-300 ${className}`}
       style={{ transformStyle: 'preserve-3d' }}
     >
-      {/* Glow effect that follows cursor */}
+      {/* Subtle glow effect */}
       {glowEffect && (
         <div
           ref={glowRef}
-          className={`absolute w-64 h-64 -translate-x-32 -translate-y-32 rounded-full bg-orange-500/10 blur-3xl pointer-events-none transition-opacity duration-300 ${
+          className={`absolute w-48 h-48 -translate-x-24 -translate-y-24 rounded-full bg-gray-900/5 blur-3xl pointer-events-none transition-opacity duration-300 ${
             isHovered ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ transformStyle: 'preserve-3d' }}
         />
       )}
-
-      {/* Border glow on hover */}
-      <div
-        className={`absolute inset-0 rounded-xl transition-opacity duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{
-          background:
-            'linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, transparent 50%, rgba(245, 158, 11, 0.2) 100%)',
-          transformStyle: 'preserve-3d',
-        }}
-      />
 
       {/* Content */}
       <div className="relative z-10" style={{ transformStyle: 'preserve-3d' }}>

@@ -1,32 +1,12 @@
 /**
  * Premium Hero Section
  *
- * Industry-leading hero designed for high-value construction customers.
- * First impression that builds immediate trust and authority.
- *
- * Customer Psychology:
- * - Immediate credibility (years, projects, expertise)
- * - Strong, confident messaging
- * - Multiple CTAs (different customer intents)
- * - Professional background video showing actual work
- * - Trust signals front and center
- *
- * Technical:
- * - Background video with optimized loading
- * - Advanced multi-layer parallax (Phase 6 enhancement)
- * - GSAP scroll-triggered animations with 3D transforms
- * - SplitType text reveals
- * - Depth-based parallax effect
- * - Mobile-optimized (static image fallback)
+ * Sophisticated hero with black/white/navy design.
+ * Clean, minimal, and professional.
  */
 
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// import SplitType from 'split-type'; // TEMPORARILY DISABLED - causing hydration issues
-import Button from './Button';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface HeroProps {
   videoUrl?: string;
@@ -39,22 +19,18 @@ export default function Hero({
 }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Simple entrance animations - no parallax (causes hydration issues)
     try {
       // Headline fade-in
       if (headlineRef.current) {
         gsap.from(headlineRef.current, {
           opacity: 0,
-          y: 30,
-          duration: 0.8,
+          y: 40,
+          duration: 1,
           ease: 'power3.out',
-          delay: 0.3,
+          delay: 0.2,
         });
       }
 
@@ -66,7 +42,7 @@ export default function Hero({
           y: 30,
           duration: 0.8,
           ease: 'power2.out',
-          delay: 0.8,
+          delay: 0.6,
         });
       }
 
@@ -79,29 +55,25 @@ export default function Hero({
           duration: 0.6,
           stagger: 0.1,
           ease: 'power2.out',
-          delay: 1.2,
+          delay: 1,
         });
       }
 
-      // Trust signals stagger
-      const trustSignals = document.querySelectorAll('.trust-signal');
-      if (trustSignals.length > 0) {
-        gsap.from('.trust-signal', {
+      // Stats stagger
+      const stats = document.querySelectorAll('.hero-stat');
+      if (stats.length > 0) {
+        gsap.from('.hero-stat', {
           opacity: 0,
           y: 20,
           duration: 0.6,
-          stagger: 0.15,
+          stagger: 0.1,
           ease: 'power2.out',
-          delay: 1.5,
+          delay: 1.3,
         });
       }
     } catch (error) {
       console.error('Hero animation error:', error);
     }
-
-    return () => {
-      // Cleanup
-    };
   }, []);
 
   return (
@@ -109,8 +81,8 @@ export default function Hero({
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Video - Professional, showing actual work */}
-      <div ref={backgroundRef} className="absolute inset-0 z-0">
+      {/* Background Video/Image */}
+      <div className="absolute inset-0 z-0">
         {/* Video for desktop */}
         <video
           className="hidden md:block absolute inset-0 w-full h-full object-cover"
@@ -123,169 +95,100 @@ export default function Hero({
           <source src={videoUrl} type="video/mp4" />
         </video>
 
-        {/* Static image for mobile (performance) */}
+        {/* Static image for mobile */}
         <div
           className="md:hidden absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${posterImage})` }}
         />
 
-        {/* Gradient overlay for readability and depth */}
-        <div
-          ref={overlayRef}
-          className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-900/80 to-slate-800/90"
-        />
-
-        {/* Subtle grid overlay (premium detail) */}
-        <div
-          ref={gridRef}
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
+        {/* Dark overlay - sophisticated gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       </div>
 
       {/* Content */}
-      <div ref={contentRef} className="relative z-10 container-custom text-center text-white">
-        {/* Main Headline - Powerful, Confident */}
-        <h1
-          ref={headlineRef}
-          className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight"
-        >
-          Professional Construction<br />
-          & Demolition Services
-        </h1>
-
-        {/* Value Proposition - Clear, Specific */}
-        <p className="hero-subtext text-xl md:text-2xl text-slate-200 max-w-3xl mx-auto mb-12 leading-relaxed normal-case" style={{ textTransform: 'none', fontFamily: 'Barlow, sans-serif' }}>
-          Expert project management and specialized demolition services for
-          commercial and residential projects across Queensland
+      <div ref={contentRef} className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 text-center">
+        {/* Eyebrow text */}
+        <p className="hero-subtext text-sm md:text-base text-white/60 tracking-widest uppercase mb-6">
+          Construction & Demolition Specialists
         </p>
 
-        {/* CTAs - Multiple options for different customer intents */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <Button
-            variant="primary"
-            size="lg"
-            href="#contact"
-            className="hero-cta w-full sm:w-auto"
-            magnetic={true}
-          >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-            Get Free Quote
-          </Button>
+        {/* Main Headline */}
+        <h1
+          ref={headlineRef}
+          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white mb-8 leading-[1.1] tracking-tight"
+          style={{ letterSpacing: '-0.02em' }}
+        >
+          Building Excellence.<br />
+          Delivering Results.
+        </h1>
 
-          <Button
-            variant="secondary"
-            size="lg"
-            href="#projects"
-            className="hero-cta w-full sm:w-auto"
+        {/* Value Proposition */}
+        <p className="hero-subtext text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+          Expert project management and specialized demolition services for
+          commercial and residential projects across Queensland.
+        </p>
+
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+          <a
+            href="#contact"
+            className="hero-cta px-8 py-4 bg-white text-gray-900 font-medium rounded hover:bg-gray-100 transition-all duration-300 w-full sm:w-auto"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-            View Projects
-          </Button>
+            Get a Quote
+          </a>
 
           <a
-            href="tel:+61474309168"
-            className="hero-cta btn btn-ghost text-white border-white hover:bg-white hover:text-slate-900 w-full sm:w-auto"
+            href="#projects"
+            className="hero-cta px-8 py-4 border border-white/30 text-white font-medium rounded hover:bg-white/10 transition-all duration-300 w-full sm:w-auto"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            +61 474 309 168
+            View Our Work
           </a>
         </div>
 
-        {/* Trust Signals - Build Immediate Credibility */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl mx-auto">
-          <div className="trust-signal">
-            <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+        {/* Stats - Minimal, sophisticated */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-3xl mx-auto">
+          <div className="hero-stat">
+            <div className="text-3xl md:text-4xl font-semibold text-white mb-1">
               15+
             </div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wide">
+            <div className="text-sm text-white/50 tracking-wide">
               Years Experience
             </div>
           </div>
 
-          <div className="trust-signal">
-            <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+          <div className="hero-stat">
+            <div className="text-3xl md:text-4xl font-semibold text-white mb-1">
               500+
             </div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wide">
+            <div className="text-sm text-white/50 tracking-wide">
               Projects Completed
             </div>
           </div>
 
-          <div className="trust-signal">
-            <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+          <div className="hero-stat">
+            <div className="text-3xl md:text-4xl font-semibold text-white mb-1">
               100%
             </div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wide">
+            <div className="text-sm text-white/50 tracking-wide">
               Safety Record
             </div>
           </div>
 
-          <div className="trust-signal">
-            <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+          <div className="hero-stat">
+            <div className="text-3xl md:text-4xl font-semibold text-white mb-1">
               24/7
             </div>
-            <div className="text-sm md:text-base text-slate-300 uppercase tracking-wide">
+            <div className="text-sm text-white/50 tracking-wide">
               Support Available
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Scroll Indicator - Guides user to explore more */}
-        <div className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <svg
-            className="w-6 h-6 text-white/60"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div className="w-6 h-10 border border-white/30 rounded-full flex justify-center pt-2">
+          <div className="w-1 h-2 bg-white/50 rounded-full animate-bounce" />
         </div>
       </div>
     </section>

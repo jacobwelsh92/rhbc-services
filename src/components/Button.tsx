@@ -1,11 +1,11 @@
 /**
  * Premium Button Component with Magnetic Hover
  *
- * Industry-leading button component with sophisticated interactions.
- * Features magnetic hover effect using GSAP - used by top agencies.
+ * Sophisticated button component with magnetic interactions.
+ * Black, white & navy color scheme for premium feel.
  *
  * Variants:
- * - primary: Orange CTA button
+ * - primary: Dark navy CTA button
  * - secondary: Outlined button
  * - ghost: Text-only button
  *
@@ -98,13 +98,13 @@ export default function Button({
     };
   }, [magnetic]);
 
-  // Style variants - design system compliant
+  // Style variants - sophisticated navy/black/white scheme
   const variants = {
     primary:
-      'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-xl',
+      'bg-gray-900 text-white hover:bg-gray-800 shadow-sm hover:shadow-md',
     secondary:
-      'border-2 border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white',
-    ghost: 'text-slate-800 hover:text-orange-500',
+      'border-1.5 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white',
+    ghost: 'text-gray-700 hover:text-gray-900',
   };
 
   const sizes = {
