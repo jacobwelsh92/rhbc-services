@@ -110,10 +110,10 @@ export default function Certifications() {
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="cert-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4 border-orange-500"
+              className="cert-card bg-white rounded-lg p-6 border border-gray-200 hover:shadow-lg hover:border-gray-300 transition-all duration-300"
             >
               {/* Icon */}
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center text-white mb-4">
+              <div className="w-14 h-14 bg-gray-900 rounded-lg flex items-center justify-center text-white mb-4">
                 {cert.icon}
               </div>
 

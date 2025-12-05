@@ -241,7 +241,7 @@ export default function ImageLightbox({
               onClick={() => setCurrentIndex(index)}
               className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden transition-all ${
                 index === currentIndex
-                  ? 'ring-2 ring-orange-500 scale-110'
+                  ? 'ring-2 ring-white scale-110'
                   : 'opacity-60 hover:opacity-100'
               }`}
               aria-label={`Go to image ${index + 1}`}

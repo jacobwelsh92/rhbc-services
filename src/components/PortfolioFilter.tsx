@@ -118,7 +118,7 @@ export default function PortfolioFilter({
             Browse Our Projects
           </h3>
           <p className="text-slate-600">
-            Showing <span className="font-bold text-orange-500">{filteredCount}</span> of{' '}
+            Showing <span className="font-bold text-gray-900">{filteredCount}</span> of{' '}
             <span className="font-bold">{totalProjects}</span> projects
           </p>
         </div>
@@ -143,7 +143,7 @@ export default function PortfolioFilter({
         {hasActiveFilters && (
           <button
             onClick={clearFilters}
-            className="hidden md:flex items-center gap-2 text-orange-500 hover:text-orange-600 font-semibold transition-colors"
+            className="hidden md:flex items-center gap-2 text-gray-900 hover:text-gray-700 font-semibold transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -165,7 +165,7 @@ export default function PortfolioFilter({
             ref={searchInputRef}
             type="text"
             placeholder="Search projects by name, description, or keywords..."
-            className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-slate-200 focus:border-orange-500 focus:outline-none transition-colors text-slate-900 placeholder:text-slate-400"
+            className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-slate-200 focus:border-gray-900 focus:outline-none transition-colors text-slate-900 placeholder:text-slate-400"
             onChange={(e) => handleFilterChange('searchQuery', e.target.value)}
           />
           <svg
@@ -201,7 +201,7 @@ export default function PortfolioFilter({
                 onClick={() => handleFilterChange('category', 'all')}
                 className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                   filters.category === 'all'
-                    ? 'bg-orange-500 text-white font-semibold'
+                    ? 'bg-gray-900 text-white font-semibold'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                 }`}
               >
@@ -213,7 +213,7 @@ export default function PortfolioFilter({
                   onClick={() => handleFilterChange('category', category)}
                   className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                     filters.category === category
-                      ? 'bg-orange-500 text-white font-semibold'
+                      ? 'bg-gray-900 text-white font-semibold'
                       : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
@@ -233,7 +233,7 @@ export default function PortfolioFilter({
                 onClick={() => handleFilterChange('budgetRange', 'all')}
                 className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                   filters.budgetRange === 'all'
-                    ? 'bg-orange-500 text-white font-semibold'
+                    ? 'bg-gray-900 text-white font-semibold'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                 }`}
               >
@@ -245,7 +245,7 @@ export default function PortfolioFilter({
                   onClick={() => handleFilterChange('budgetRange', range)}
                   className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                     filters.budgetRange === range
-                      ? 'bg-orange-500 text-white font-semibold'
+                      ? 'bg-gray-900 text-white font-semibold'
                       : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
@@ -265,7 +265,7 @@ export default function PortfolioFilter({
                 onClick={() => handleFilterChange('location', 'all')}
                 className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                   filters.location === 'all'
-                    ? 'bg-orange-500 text-white font-semibold'
+                    ? 'bg-gray-900 text-white font-semibold'
                     : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                 }`}
               >
@@ -277,7 +277,7 @@ export default function PortfolioFilter({
                   onClick={() => handleFilterChange('location', location)}
                   className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
                     filters.location === location
-                      ? 'bg-orange-500 text-white font-semibold'
+                      ? 'bg-gray-900 text-white font-semibold'
                       : 'bg-slate-50 text-slate-700 hover:bg-slate-100'
                   }`}
                 >
@@ -313,11 +313,11 @@ export default function PortfolioFilter({
       {hasActiveFilters && (
         <div className="hidden md:flex flex-wrap gap-2 mt-6 pt-6 border-t border-slate-200">
           {filters.category !== 'all' && (
-            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
               {filters.category}
               <button
                 onClick={() => handleFilterChange('category', 'all')}
-                className="hover:text-orange-900"
+                className="hover:text-gray-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -326,11 +326,11 @@ export default function PortfolioFilter({
             </span>
           )}
           {filters.budgetRange !== 'all' && (
-            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
               {filters.budgetRange}
               <button
                 onClick={() => handleFilterChange('budgetRange', 'all')}
-                className="hover:text-orange-900"
+                className="hover:text-gray-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -339,11 +339,11 @@ export default function PortfolioFilter({
             </span>
           )}
           {filters.location !== 'all' && (
-            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
               {filters.location}
               <button
                 onClick={() => handleFilterChange('location', 'all')}
-                className="hover:text-orange-900"
+                className="hover:text-gray-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -352,14 +352,14 @@ export default function PortfolioFilter({
             </span>
           )}
           {filters.searchQuery && (
-            <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+            <span className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-semibold">
               Search: "{filters.searchQuery}"
               <button
                 onClick={() => {
                   handleFilterChange('searchQuery', '');
                   if (searchInputRef.current) searchInputRef.current.value = '';
                 }}
-                className="hover:text-orange-900"
+                className="hover:text-gray-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

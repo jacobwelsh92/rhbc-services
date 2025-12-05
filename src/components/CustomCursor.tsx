@@ -124,7 +124,7 @@ export default function CustomCursor() {
       >
         <div
           className={`w-full h-full rounded-full border-2 transition-colors duration-300 ${
-            isHovering ? 'border-orange-400' : 'border-white'
+            isHovering ? 'border-white' : 'border-white'
           }`}
         />
       </div>

@@ -219,10 +219,7 @@ export default function Projects() {
                 {/* Project Details */}
                 <div className={`flex flex-col justify-center ${index % 2 === 0 ? '' : 'md:col-start-1 md:row-start-1'}`}>
                   {/* Category Badge */}
-                  <div className="inline-flex items-center gap-2 text-orange-500 font-semibold mb-4 w-fit">
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-                    </svg>
+                  <div className="inline-flex items-center gap-2 text-gray-500 font-medium mb-4 w-fit text-sm tracking-wide uppercase">
                     {project.category}
                   </div>
 
@@ -313,37 +310,37 @@ export default function Projects() {
         </div>
 
         {/* Stats Section - Build Credibility */}
-        <div className="mt-20 bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-12">
+        <div className="mt-20 bg-gray-900 rounded-lg p-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
                 500+
               </div>
-              <div className="text-slate-300 text-sm md:text-base">
+              <div className="text-gray-400 text-sm md:text-base">
                 Projects Completed
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
                 100%
               </div>
-              <div className="text-slate-300 text-sm md:text-base">
+              <div className="text-gray-400 text-sm md:text-base">
                 Safety Record
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
                 $50M+
               </div>
-              <div className="text-slate-300 text-sm md:text-base">
+              <div className="text-gray-400 text-sm md:text-base">
                 Projects Delivered
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-bold text-orange-400 mb-2">
+              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
                 98%
               </div>
-              <div className="text-slate-300 text-sm md:text-base">
+              <div className="text-gray-400 text-sm md:text-base">
                 Client Satisfaction
               </div>
             </div>

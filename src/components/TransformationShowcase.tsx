@@ -150,7 +150,7 @@ export default function TransformationShowcase() {
                       <div className="text-sm text-slate-500 uppercase tracking-wide mb-1">
                         Value
                       </div>
-                      <div className="text-lg font-semibold text-orange-500">
+                      <div className="text-lg font-semibold text-gray-900">
                         {project.value}
                       </div>
                     </div>

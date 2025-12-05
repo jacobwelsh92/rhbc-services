@@ -164,7 +164,7 @@ export default function BeforeAfterSlider({
           draggable={false}
         />
         {/* After Label */}
-        <div className="absolute top-4 right-4 bg-orange-500/90 backdrop-blur-sm text-white px-4 py-2 rounded-lg font-semibold">
+        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-lg font-semibold">
           {afterLabel}
         </div>
       </div>
@@ -187,7 +187,7 @@ export default function BeforeAfterSlider({
             flex items-center justify-center
             cursor-grab active:cursor-grabbing
             hover:scale-110 transition-transform duration-200
-            focus:outline-none focus:ring-4 focus:ring-orange-500/50
+            focus:outline-none focus:ring-4 focus:ring-gray-500/50
             ${isDragging ? 'scale-110' : ''}
           `}
           aria-label="Drag to compare before and after"

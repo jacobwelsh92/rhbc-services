@@ -252,7 +252,7 @@ export default function ContactForm() {
                       className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                         errors.name
                           ? 'border-red-500 bg-red-50'
-                          : 'border-slate-200 focus:border-orange-500 focus:outline-none'
+                          : 'border-slate-200 focus:border-gray-900 focus:outline-none'
                       }`}
                       placeholder="John Smith"
                     />
@@ -276,7 +276,7 @@ export default function ContactForm() {
                       className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                         errors.email
                           ? 'border-red-500 bg-red-50'
-                          : 'border-slate-200 focus:border-orange-500 focus:outline-none'
+                          : 'border-slate-200 focus:border-gray-900 focus:outline-none'
                       }`}
                       placeholder="john@example.com"
                     />
@@ -300,7 +300,7 @@ export default function ContactForm() {
                       className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                         errors.phone
                           ? 'border-red-500 bg-red-50'
-                          : 'border-slate-200 focus:border-orange-500 focus:outline-none'
+                          : 'border-slate-200 focus:border-gray-900 focus:outline-none'
                       }`}
                       placeholder="+61 4XX XXX XXX"
                     />
@@ -320,7 +320,7 @@ export default function ContactForm() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-orange-500 focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-gray-900 focus:outline-none transition-colors duration-200"
                       placeholder="Your Company Pty Ltd"
                     />
                   </div>
@@ -339,7 +339,7 @@ export default function ContactForm() {
                       className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 ${
                         errors.projectType
                           ? 'border-red-500 bg-red-50'
-                          : 'border-slate-200 focus:border-orange-500 focus:outline-none'
+                          : 'border-slate-200 focus:border-gray-900 focus:outline-none'
                       }`}
                     >
                       <option value="">Select project type...</option>
@@ -366,7 +366,7 @@ export default function ContactForm() {
                       name="budgetRange"
                       value={formData.budgetRange}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-orange-500 focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-gray-900 focus:outline-none transition-colors duration-200"
                     >
                       <option value="">Select budget range...</option>
                       <option value="under-50k">Under $50,000</option>
@@ -388,7 +388,7 @@ export default function ContactForm() {
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-orange-500 focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-gray-900 focus:outline-none transition-colors duration-200"
                       placeholder="Brisbane, QLD"
                     />
                   </div>
@@ -403,7 +403,7 @@ export default function ContactForm() {
                       name="timeline"
                       value={formData.timeline}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-orange-500 focus:outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-slate-200 focus:border-gray-900 focus:outline-none transition-colors duration-200"
                     >
                       <option value="">Select timeline...</option>
                       <option value="asap">As soon as possible</option>
@@ -430,7 +430,7 @@ export default function ContactForm() {
                     className={`w-full px-4 py-3 rounded-lg border-2 transition-colors duration-200 resize-none ${
                       errors.message
                         ? 'border-red-500 bg-red-50'
-                        : 'border-slate-200 focus:border-orange-500 focus:outline-none'
+                        : 'border-slate-200 focus:border-gray-900 focus:outline-none'
                     }`}
                     placeholder="Please provide details about your project including scope, specific requirements, and any other information that would help us provide an accurate quote."
                   />
@@ -483,7 +483,7 @@ export default function ContactForm() {
                     href="tel:+61474309168"
                     className="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
                   >
-                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                       </svg>
@@ -498,7 +498,7 @@ export default function ContactForm() {
                     href="mailto:contact@rhbc-services.com.au"
                     className="flex items-center gap-4 p-4 bg-white/10 rounded-lg hover:bg-white/20 transition-colors group"
                   >
-                    <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -529,7 +529,7 @@ export default function ContactForm() {
                     <span className="font-semibold">Closed</span>
                   </div>
                   <div className="pt-4 border-t border-slate-200">
-                    <p className="text-sm text-orange-600 font-semibold">
+                    <p className="text-sm text-gray-900 font-semibold">
                       Emergency Services Available 24/7
                     </p>
                   </div>

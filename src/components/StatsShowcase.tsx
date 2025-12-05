@@ -134,10 +134,10 @@ export default function StatsShowcase() {
             >
               {/* Value */}
               <div className="mb-2">
-                <span className="stat-value text-5xl md:text-6xl font-bold text-orange-400">
+                <span className="stat-value text-5xl md:text-6xl font-semibold text-white">
                   0
                 </span>
-                <span className="text-5xl md:text-6xl font-bold text-orange-400">
+                <span className="text-5xl md:text-6xl font-semibold text-white">
                   {stat.suffix}
                 </span>
               </div>
