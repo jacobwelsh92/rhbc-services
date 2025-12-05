@@ -67,23 +67,16 @@ export default function Navigation() {
           {/* Logo */}
           <a
             href="/"
-            className="flex items-center gap-3 group"
+            className="flex items-center group"
             aria-label="RHBC Services Home"
           >
-            <div className={`w-10 h-10 lg:w-11 lg:h-11 rounded flex items-center justify-center transition-colors duration-300 ${
-              isScrolled ? 'bg-gray-900' : 'bg-white'
-            }`}>
-              <span className={`font-bold text-lg lg:text-xl transition-colors duration-300 ${
-                isScrolled ? 'text-white' : 'text-gray-900'
-              }`}>R</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className={`font-semibold text-lg lg:text-xl tracking-tight transition-colors duration-300 ${
-                isScrolled ? 'text-gray-900' : 'text-white'
-              }`}>
-                RHBC Services
-              </span>
-            </div>
+            <img
+              src="/logo.svg"
+              alt="RHBC Services"
+              className={`h-12 lg:h-14 w-auto transition-all duration-300 ${
+                isScrolled ? '' : 'brightness-0 invert'
+              }`}
+            />
           </a>
 
           {/* Desktop Navigation - Center */}
