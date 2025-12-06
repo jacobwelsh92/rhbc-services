@@ -26,7 +26,7 @@ const certifications = [
     ),
     title: 'Fully Licensed',
     description: 'QBCC Licensed Builder',
-    details: 'License #[Your License Number]',
+    details: 'Verified QBCC Builder',
     status: 'Current',
   },
   {
