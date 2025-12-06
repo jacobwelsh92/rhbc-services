@@ -1,28 +1,13 @@
 /**
- * Premium Projects Showcase Section
+ * Projects Showcase Section
  *
- * Visual proof of quality work for high-value customers.
- * Before/after imagery builds confidence in capabilities.
- *
- * Customer Psychology:
- * - Visual proof over claims
- * - Before/after comparisons (transformation)
- * - Project scale/complexity indicators
- * - Professional photography
- * - Clear project details (location, timeline, budget range)
- *
- * Technical:
- * - GSAP scroll-triggered reveals
- * - Hover image transitions
- * - Card 3D tilt effects
- * - Lazy loading for performance
- * - Responsive grid layout
+ * Clean, text-focused project showcase without relying on images.
+ * Sophisticated design with project details and highlights.
  */
 
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Card from './Card';
 import Button from './Button';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -35,10 +20,7 @@ interface Project {
   duration: string;
   budgetRange: string;
   description: string;
-  beforeImage: string;
-  afterImage: string;
   highlights: string[];
-  featured: boolean;
 }
 
 const projects: Project[] = [
@@ -50,15 +32,12 @@ const projects: Project[] = [
     duration: '4 weeks',
     budgetRange: '$150k-$200k',
     description: 'Complete strip-out and demolition for a 2,000m² office renovation. Removed all internal partitions, electrical, HVAC, and flooring while maintaining structural integrity.',
-    beforeImage: '/images/projects/office-before.jpg',
-    afterImage: '/images/projects/office-after.jpg',
     highlights: [
       'Zero safety incidents',
       'Completed 1 week ahead of schedule',
       'Recycled 85% of materials',
       'Minimal disruption to surrounding tenants',
     ],
-    featured: true,
   },
   {
     id: 2,
@@ -68,51 +47,27 @@ const projects: Project[] = [
     duration: '2 weeks',
     budgetRange: '$75k-$100k',
     description: 'Wall and floor sawing for new retail entrance installation. Required precision cutting through 400mm reinforced concrete walls while maintaining building stability.',
-    beforeImage: '/images/projects/concrete-before.jpg',
-    afterImage: '/images/projects/concrete-after.jpg',
     highlights: [
       'Precision cuts within 2mm tolerance',
       'Completed during business hours',
       'Advanced dust suppression systems',
       'No structural compromise',
     ],
-    featured: true,
   },
   {
     id: 3,
     title: 'Industrial Demolition - Manufacturing Facility',
-    category: 'Specialized Demolition',
+    category: 'Specialised Demolition',
     location: 'Cleveland, QLD',
     duration: '6 weeks',
     budgetRange: '$300k-$500k',
     description: 'Full demolition of 5,000m² manufacturing facility including hazardous material removal, concrete crushing, and site remediation.',
-    beforeImage: '/images/projects/industrial-before.jpg',
-    afterImage: '/images/projects/industrial-after.jpg',
     highlights: [
       'Hazmat certified removal',
       'On-site concrete crushing',
       '100% site cleared and remediated',
       'Environmental compliance achieved',
     ],
-    featured: true,
-  },
-  {
-    id: 4,
-    title: 'Residential Construction Project Management',
-    category: 'Project Management',
-    location: 'Redland Bay',
-    duration: '12 weeks',
-    budgetRange: '$200k-$300k',
-    description: 'Complete project management for high-end residential construction. Coordinated all trades, materials procurement, and timeline management.',
-    beforeImage: '/images/projects/residential-before.jpg',
-    afterImage: '/images/projects/residential-after.jpg',
-    highlights: [
-      'Delivered on time and under budget',
-      'Quality exceeded client expectations',
-      'Seamless trade coordination',
-      'Zero defects at handover',
-    ],
-    featured: false,
   },
 ];
 
@@ -121,178 +76,142 @@ export default function Projects() {
   const projectsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Section title animation
-    gsap.from('.projects-title', {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none reverse',
-      },
-    });
-
-    // Project cards stagger reveal
-    if (projectsRef.current) {
-      const cards = projectsRef.current.querySelectorAll('.project-card');
-
-      gsap.from(cards, {
+    const ctx = gsap.context(() => {
+      // Section header animation
+      gsap.from('.projects-header', {
         opacity: 0,
-        y: 80,
-        stagger: 0.2,
-        duration: 1,
+        y: 40,
+        duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: projectsRef.current,
-          start: 'top 70%',
-          toggleActions: 'play none none reverse',
+          trigger: sectionRef.current,
+          start: 'top 80%',
         },
       });
-    }
+
+      // Project cards stagger
+      if (projectsRef.current) {
+        const cards = projectsRef.current.querySelectorAll('.project-card');
+        if (cards.length > 0) {
+          gsap.from(cards, {
+            opacity: 0,
+            y: 60,
+            stagger: 0.15,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: projectsRef.current,
+              start: 'top 75%',
+            },
+          });
+        }
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <section
       id="projects"
       ref={sectionRef}
-      className="section bg-white"
+      className="py-24 md:py-32 lg:py-40 bg-white"
     >
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="projects-title mb-4">
+        <div className="projects-header max-w-2xl mb-16 lg:mb-20">
+          <p className="text-sm text-gray-500 tracking-widest uppercase mb-4">
+            Our Work
+          </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-6" style={{ letterSpacing: '-0.02em' }}>
             Recent Projects
           </h2>
-          <p className="projects-title text-xl text-slate-600">
-            See the quality and professionalism we deliver on every project.
-            From small-scale concrete cutting to large industrial demolitions.
+          <p className="text-lg text-gray-600 leading-relaxed">
+            See the quality and professionalism we deliver on every project. From small-scale concrete cutting to large industrial demolitions.
           </p>
         </div>
 
-        {/* Featured Projects Grid */}
-        <div ref={projectsRef} className="space-y-16 mb-16">
-          {projects.filter(p => p.featured).map((project, index) => (
-            <Card
+        {/* Projects List */}
+        <div ref={projectsRef} className="space-y-8 lg:space-y-12 mb-16">
+          {projects.map((project, index) => (
+            <div
               key={project.id}
-              className={`project-card overflow-hidden ${
-                index % 2 === 0 ? '' : ''
-              }`}
-              hover3d={true}
-              glowEffect={true}
+              className="project-card border border-gray-200 rounded-lg p-8 lg:p-10 hover:border-gray-300 hover:shadow-lg transition-all duration-300"
             >
-              <div className={`grid md:grid-cols-2 gap-8 ${
-                index % 2 === 0 ? '' : 'md:grid-flow-dense'
-              }`}>
-                {/* Project Images - Before/After */}
-                <div className={`space-y-4 ${index % 2 === 0 ? '' : 'md:col-start-2'}`}>
-                  {/* Before Image */}
-                  <div className="relative overflow-hidden rounded-lg group">
-                    <div className="absolute top-4 left-4 bg-slate-900/90 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
-                      Before
-                    </div>
-                    <img
-                      src={project.beforeImage}
-                      alt={`${project.title} - Before`}
-                      className="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
-                  </div>
-
-                  {/* After Image */}
-                  <div className="relative overflow-hidden rounded-lg group">
-                    <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold z-10">
-                      After
-                    </div>
-                    <img
-                      src={project.afterImage}
-                      alt={`${project.title} - After`}
-                      className="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent" />
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className={`flex flex-col justify-center ${index % 2 === 0 ? '' : 'md:col-start-1 md:row-start-1'}`}>
-                  {/* Category Badge */}
-                  <div className="inline-flex items-center gap-2 text-gray-500 font-medium mb-4 w-fit text-sm tracking-wide uppercase">
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Project Info */}
+                <div className="lg:col-span-2">
+                  {/* Category */}
+                  <p className="text-sm text-gray-500 tracking-wide uppercase mb-3">
                     {project.category}
-                  </div>
+                  </p>
 
                   {/* Title */}
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-2xl lg:text-3xl font-semibold text-gray-900 mb-4">
                     {project.title}
                   </h3>
 
-                  {/* Project Meta */}
-                  <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-slate-200">
-                    <div>
-                      <p className="text-sm text-slate-500 mb-1">Location</p>
-                      <p className="font-semibold text-slate-900">{project.location}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-500 mb-1">Duration</p>
-                      <p className="font-semibold text-slate-900">{project.duration}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-500 mb-1">Budget Range</p>
-                      <p className="font-semibold text-slate-900">{project.budgetRange}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-slate-500 mb-1">Status</p>
-                      <p className="font-semibold text-green-600">Completed</p>
-                    </div>
-                  </div>
-
                   {/* Description */}
-                  <p className="text-slate-700 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6">
                     {project.description}
                   </p>
 
                   {/* Highlights */}
-                  <div className="mb-6">
-                    <h4 className="font-bold text-slate-900 mb-3">Project Highlights</h4>
-                    <ul className="space-y-2">
-                      {project.highlights.map((highlight, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <svg
-                            className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          <span className="text-slate-700">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {project.highlights.map((highlight, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <svg
+                          className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span className="text-sm text-gray-700">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project Meta */}
+                <div className="lg:border-l lg:border-gray-200 lg:pl-8">
+                  <div className="grid grid-cols-2 lg:grid-cols-1 gap-6">
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Location</p>
+                      <p className="font-medium text-gray-900">{project.location}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Duration</p>
+                      <p className="font-medium text-gray-900">{project.duration}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Budget</p>
+                      <p className="font-medium text-gray-900">{project.budgetRange}</p>
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-1">Status</p>
+                      <p className="font-medium text-green-600">Completed</p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
 
-        {/* View All Projects CTA */}
+        {/* CTA */}
         <div className="text-center">
-          <p className="text-xl text-slate-600 mb-6">
-            Want to see more of our completed projects?
-          </p>
           <Button
             variant="primary"
             size="lg"
-            href="/projects"
+            href="#contact"
             magnetic={true}
           >
-            View Full Portfolio
+            Discuss Your Project
             <svg
               className="w-5 h-5 ml-2"
               fill="none"
@@ -303,44 +222,44 @@ export default function Projects() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
           </Button>
         </div>
 
-        {/* Stats Section - Build Credibility */}
-        <div className="mt-20 bg-gray-900 rounded-lg p-12">
+        {/* Stats Section */}
+        <div className="mt-20 lg:mt-24 bg-gray-900 rounded-lg p-10 lg:p-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2">
                 500+
               </div>
-              <div className="text-gray-400 text-sm md:text-base">
+              <div className="text-gray-400 text-sm">
                 Projects Completed
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2">
                 100%
               </div>
-              <div className="text-gray-400 text-sm md:text-base">
+              <div className="text-gray-400 text-sm">
                 Safety Record
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2">
                 $50M+
               </div>
-              <div className="text-gray-400 text-sm md:text-base">
+              <div className="text-gray-400 text-sm">
                 Projects Delivered
               </div>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl font-semibold text-white mb-2">
+              <div className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2">
                 98%
               </div>
-              <div className="text-gray-400 text-sm md:text-base">
+              <div className="text-gray-400 text-sm">
                 Client Satisfaction
               </div>
             </div>

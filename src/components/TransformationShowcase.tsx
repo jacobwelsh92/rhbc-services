@@ -23,7 +23,7 @@ const transformations = [
   {
     id: 1,
     title: 'Commercial Office Strip-Out',
-    description: 'Complete office transformation in Brisbane CBD. Full strip-out and waste removal completed in 48 hours with zero disruption to neighboring tenants.',
+    description: 'Complete office transformation in Brisbane CBD. Full strip-out and waste removal completed in 48 hours with zero disruption to neighbouring tenants.',
     before: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=675&fit=crop',
     after: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=675&fit=crop',
     location: 'Brisbane CBD',

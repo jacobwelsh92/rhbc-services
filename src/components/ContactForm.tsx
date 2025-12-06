@@ -16,7 +16,7 @@
  * - GSAP animations for success/error states
  * - Accessible form labels and ARIA
  * - File upload for project documents
- * - Mobile-optimized inputs
+ * - Mobile-optimised inputs
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -348,7 +348,7 @@ export default function ContactForm() {
                       <option value="office-stripout">Office Strip Out</option>
                       <option value="demolition">Demolition Services</option>
                       <option value="waste-removal">Waste Removal</option>
-                      <option value="skilled-labor">Skilled Labor</option>
+                      <option value="skilled-labour">Skilled Labour</option>
                       <option value="other">Other</option>
                     </select>
                     {errors.projectType && (

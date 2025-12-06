@@ -15,7 +15,7 @@
  * - Real-time filtering with animations
  * - GSAP transitions between states
  * - URL parameter support (shareable filters)
- * - Mobile-optimized filter UI
+ * - Mobile-optimised filter UI
  * - Debounced search input
  */
 

@@ -16,7 +16,7 @@
  * - 3D card tilt effects
  * - Stagger reveal on scroll
  * - Smooth transitions
- * - Mobile-optimized swipe
+ * - Mobile-optimised swipe
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -77,7 +77,7 @@ const testimonials: Testimonial[] = [
     name: 'David Thompson',
     role: 'General Contractor',
     company: 'Thompson Construction',
-    content: 'Been working with RHBC for 3 years on multiple projects. Their skilled labor and project management are second to none. Always my first call for demolition work.',
+    content: 'Been working with RHBC for 3 years on multiple projects. Their skilled labour and project management are second to none. Always my first call for demolition work.',
     rating: 5,
     verified: true,
     image: '/images/testimonials/placeholder.jpg',

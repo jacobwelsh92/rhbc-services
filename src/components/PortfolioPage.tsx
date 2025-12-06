@@ -9,7 +9,7 @@
  * - Project cards with before/after images
  * - Lightbox gallery for detailed viewing
  * - GSAP animations for smooth transitions
- * - Mobile-optimized layout
+ * - Mobile-optimised layout
  */
 
 import { useEffect, useRef, useState } from 'react';
@@ -146,7 +146,7 @@ const allProjects: Project[] = [
     location: 'Brisbane',
     duration: '1 week',
     budgetRange: '$50k-$75k',
-    description: 'Emergency concrete cutting for critical infrastructure repair. Fast response and execution to minimize downtime.',
+    description: 'Emergency concrete cutting for critical infrastructure repair. Fast response and execution to minimise downtime.',
     beforeImage: '/images/projects/emergency-before.jpg',
     afterImage: '/images/projects/emergency-after.jpg',
     galleryImages: [
@@ -168,7 +168,7 @@ const allProjects: Project[] = [
     location: 'Capalaba',
     duration: '3 weeks',
     budgetRange: '$100k-$150k',
-    description: 'Complete strip-out of retail space in busy shopping center. Worked overnight to avoid disrupting neighboring businesses.',
+    description: 'Complete strip-out of retail space in busy shopping centre. Worked overnight to avoid disrupting neighbouring businesses.',
     beforeImage: '/images/projects/retail-before.jpg',
     afterImage: '/images/projects/retail-after.jpg',
     galleryImages: [
@@ -177,7 +177,7 @@ const allProjects: Project[] = [
     ],
     highlights: [
       'Overnight work schedule',
-      'Zero complaints from neighbors',
+      'Zero complaints from neighbours',
       'All materials properly disposed',
       'Completed 2 days early',
     ],

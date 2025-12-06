@@ -124,7 +124,7 @@ export default function Hero({
 
         {/* Value Proposition */}
         <p className="hero-subtext text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-          Expert project management and specialized demolition services for
+          Expert project management and specialised demolition services for
           commercial and residential projects across Queensland.
         </p>
 

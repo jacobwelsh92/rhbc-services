@@ -8,7 +8,7 @@
  * - Draggable slider with touch support
  * - Keyboard navigation (arrow keys)
  * - Smooth animations and transitions
- * - Mobile-optimized with gesture support
+ * - Mobile-optimised with gesture support
  * - Accessible with ARIA labels
  * - Premium visual design
  *
